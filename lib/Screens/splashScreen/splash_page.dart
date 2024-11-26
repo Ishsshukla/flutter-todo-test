@@ -44,6 +44,9 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -56,29 +59,29 @@ class _SplashScreenState extends State<SplashScreen>
         child: Center(
           child: FadeTransition(
             opacity: _fadeInAnimation,
-            child:const  Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   Icons.check_circle_outline,
-                  size: 100,
+                  size: screenWidth * 0.25, // Adjust icon size based on screen width
                   color: Colors.white,
                 ),
-                const SizedBox(height: 20),
-                const Text(
+                SizedBox(height: screenHeight * 0.02), // Adjust spacing based on screen height
+                Text(
                   'ToDo App',
                   style: TextStyle(
-                    fontSize: 36,
+                    fontSize: screenWidth * 0.09, // Adjust font size based on screen width
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     fontFamily: 'Roboto',
                   ),
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: screenHeight * 0.01), // Adjust spacing based on screen height
+                Text(
                   'Organize your tasks effortlessly',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: screenWidth * 0.045, // Adjust font size based on screen width
                     color: Colors.white70,
                     fontFamily: 'Roboto',
                   ),
