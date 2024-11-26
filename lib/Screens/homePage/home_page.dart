@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add, color: Colors.white),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
         child: ListView.builder(
           itemCount: db.toDoList.length,
           itemBuilder: (context, index) {
@@ -111,11 +111,11 @@ class _HomePageState extends State<HomePage> {
                 horizontal: screenWidth * 0.05,
               ),
               child: Card(
-                margin: const EdgeInsets.symmetric(
-                    vertical: 12.0), // Increased vertical margin
+                margin: EdgeInsets.symmetric(
+                    vertical: screenWidth * 0.03), // Adjusted vertical margin
                 shape: RoundedRectangleBorder(
                   borderRadius:
-                      BorderRadius.circular(20), // Increased border radius
+                      BorderRadius.circular(screenWidth * 0.05), // Adjusted border radius
                 ),
                 elevation: 8, // Increased elevation
                 shadowColor: Colors.black
@@ -123,15 +123,15 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius:
-                        BorderRadius.circular(20), // Increased border radius
+                        BorderRadius.circular(screenWidth * 0.05), // Adjusted border radius
                     gradient: const LinearGradient(
                       colors: [Color(0xFF56CCF2), Color(0xFF4A90E2)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 16.0, horizontal: 20.0), // Increased padding
+                  padding: EdgeInsets.symmetric(
+                      vertical: screenWidth * 0.04, horizontal: screenWidth * 0.05), // Adjusted padding
                   child: Row(
                     children: [
                       // Checkbox for task completion
@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                         activeColor: Colors.white,
                         checkColor: Colors.blue[700],
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: screenWidth * 0.02),
 
                       // Task details
                       Expanded(
@@ -150,19 +150,19 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text(
                               db.toDoList[index][0],
-                              style: const TextStyle(
-                                fontSize: 18,
+                              style: TextStyle(
+                                fontSize: screenWidth * 0.045,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
                               ),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                             ),
-                            const SizedBox(height: 4),
+                            SizedBox(height: screenWidth * 0.01),
                             Text(
                               db.toDoList[index][1] ? "Completed" : "Pending",
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: screenWidth * 0.035,
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
 
                       // Delete button with icon
                       IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.white),
+                        icon: Icon(Icons.delete, color: Colors.white, size: screenWidth * 0.06),
                         onPressed: () => deleteTask(index),
                         tooltip: 'Delete task',
                       ),
